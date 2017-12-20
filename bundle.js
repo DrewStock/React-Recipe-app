@@ -67,6 +67,14 @@
 
 	var _axios2 = _interopRequireDefault(_axios);
 
+	var _recipe_list = __webpack_require__(186);
+
+	var _recipe_list2 = _interopRequireDefault(_recipe_list);
+
+	var _recipe_detail = __webpack_require__(188);
+
+	var _recipe_detail2 = _interopRequireDefault(_recipe_detail);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -84,7 +92,8 @@
 	        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
 	        _this.state = {
-	            recipes: []
+	            recipes: [],
+	            selectedRecipe: null
 	        };
 	        return _this;
 	    }
@@ -94,35 +103,28 @@
 	        value: function componentDidMount() {
 	            var _this2 = this;
 
-	            _axios2.default.get('http://localhost:5000/api/recipes/').then(function (res) {
-	                console.log(res.data);
+	            _axios2.default.get('https://drewstockpdx-recipe-api.herokuapp.com/api/recipes').then(function (res) {
 	                var recipes = res.data;
-	                _this2.setState({ recipes: recipes });
+	                _this2.setState({
+	                    recipes: recipes,
+	                    selectedRecipe: recipes[0]
+	                });
 	            });
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this3 = this;
+
 	            return _react2.default.createElement(
 	                'div',
-	                null,
-	                this.state.recipes.map(function (recipe) {
-	                    return _react2.default.createElement(
-	                        'div',
-	                        null,
-	                        _react2.default.createElement(
-	                            'h1',
-	                            { key: recipe._id },
-	                            recipe.name
-	                        ),
-	                        _react2.default.createElement(
-	                            'p',
-	                            null,
-	                            recipe.description
-	                        ),
-	                        _react2.default.createElement('img', { src: recipe.imageUrl })
-	                    );
-	                })
+	                { className: 'row' },
+	                _react2.default.createElement(_recipe_detail2.default, { recipe: this.state.selectedRecipe }),
+	                _react2.default.createElement(_recipe_list2.default, {
+	                    onRecipeSelect: function onRecipeSelect(selectedRecipe) {
+	                        return _this3.setState({ selectedRecipe: selectedRecipe });
+	                    },
+	                    recipes: this.state.recipes })
 	            );
 	        }
 	    }]);
@@ -21358,6 +21360,158 @@
 	  };
 	};
 
+
+/***/ }),
+/* 186 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _recipe_list_item = __webpack_require__(187);
+
+	var _recipe_list_item2 = _interopRequireDefault(_recipe_list_item);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var RecipeList = function RecipeList(props) {
+
+	    var recipeItems = props.recipes.map(function (recipe) {
+	        return _react2.default.createElement(_recipe_list_item2.default, {
+	            onRecipeSelect: props.onRecipeSelect,
+	            key: recipe._id,
+	            recipe: recipe });
+	    });
+
+	    return _react2.default.createElement(
+	        'ul',
+	        { className: 'col-4' },
+	        recipeItems
+	    );
+	};
+
+	exports.default = RecipeList;
+
+/***/ }),
+/* 187 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var RecipeListItem = function RecipeListItem(_ref) {
+	    var recipe = _ref.recipe,
+	        onRecipeSelect = _ref.onRecipeSelect;
+
+	    console.log(recipe);
+
+	    return _react2.default.createElement(
+	        'li',
+	        { onClick: function onClick() {
+	                onRecipeSelect(recipe);
+	                console.log('selected recipe is ' + recipe.name);
+	            },
+	            className: 'card' },
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'media' },
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'recipe-item' },
+	                _react2.default.createElement(
+	                    'h4',
+	                    null,
+	                    recipe.name
+	                ),
+	                _react2.default.createElement('img', { src: recipe.imageUrl }),
+	                _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    recipe.description
+	                )
+	            )
+	        )
+	    );
+	};
+
+	exports.default = RecipeListItem;
+
+/***/ }),
+/* 188 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var RecipeDetail = function RecipeDetail(_ref) {
+	    var recipe = _ref.recipe,
+	        selectedRecipe = _ref.selectedRecipe;
+
+
+	    if (!recipe) {
+	        return _react2.default.createElement(
+	            "div",
+	            null,
+	            "Loading..."
+	        );
+	    }
+
+	    return _react2.default.createElement(
+	        "div",
+	        { className: "col-8 card" },
+	        _react2.default.createElement(
+	            "div",
+	            null,
+	            _react2.default.createElement(
+	                "h2",
+	                null,
+	                recipe.name
+	            )
+	        ),
+	        _react2.default.createElement(
+	            "div",
+	            { className: "detail-image" },
+	            _react2.default.createElement("img", { src: recipe.imageUrl }),
+	            _react2.default.createElement(
+	                "p",
+	                null,
+	                "Bacon ipsum dolor amet biltong frankfurter shank swine pancetta prosciutto short ribs sausage pig chicken. Ball tip rump tongue spare ribs burgdoggen, cupim buffalo chuck corned beef flank. Sirloin fatback buffalo tenderloin, pancetta shankle landjaeger ground round sausage hamburger pork loin bacon tongue. Bresaola ham hock kielbasa sausage strip steak shank cupim andouille leberkas turducken. Ball tip turkey ribeye chuck pork loin tenderloin spare ribs."
+	            ),
+	            _react2.default.createElement(
+	                "p",
+	                null,
+	                "Pork jowl ham pork belly ball tip, burgdoggen corned beef spare ribs venison ham hock pork chop turducken beef tri-tip. Rump prosciutto venison tongue ham hock cow buffalo cupim meatloaf ribeye t-bone drumstick pastrami shankle alcatra. Strip steak swine fatback tri-tip, shankle doner ball tip pig. Chicken swine shankle shank. Bacon alcatra ribeye flank tail swine."
+	            )
+	        )
+	    );
+	};
+
+	exports.default = RecipeDetail;
 
 /***/ })
 /******/ ]);
