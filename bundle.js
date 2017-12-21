@@ -21392,7 +21392,7 @@
 
 	    return _react2.default.createElement(
 	        'ul',
-	        { className: 'col-4' },
+	        { id: 'recipe-list', className: 'col-md-4' },
 	        recipeItems
 	    );
 	};
@@ -21483,7 +21483,7 @@
 
 	    return _react2.default.createElement(
 	        "div",
-	        { className: "col-8 card" },
+	        { id: "recipe-detail", className: "h-50 col-md-8 card" },
 	        _react2.default.createElement(
 	            "div",
 	            null,
@@ -21501,11 +21501,6 @@
 	                "p",
 	                null,
 	                "Bacon ipsum dolor amet biltong frankfurter shank swine pancetta prosciutto short ribs sausage pig chicken. Ball tip rump tongue spare ribs burgdoggen, cupim buffalo chuck corned beef flank. Sirloin fatback buffalo tenderloin, pancetta shankle landjaeger ground round sausage hamburger pork loin bacon tongue. Bresaola ham hock kielbasa sausage strip steak shank cupim andouille leberkas turducken. Ball tip turkey ribeye chuck pork loin tenderloin spare ribs."
-	            ),
-	            _react2.default.createElement(
-	                "p",
-	                null,
-	                "Pork jowl ham pork belly ball tip, burgdoggen corned beef spare ribs venison ham hock pork chop turducken beef tri-tip. Rump prosciutto venison tongue ham hock cow buffalo cupim meatloaf ribeye t-bone drumstick pastrami shankle alcatra. Strip steak swine fatback tri-tip, shankle doner ball tip pig. Chicken swine shankle shank. Bacon alcatra ribeye flank tail swine."
 	            )
 	        )
 	    );
