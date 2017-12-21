@@ -67,3 +67,24 @@ body {
 .recipe-item h4:hover {
     text-decoration: underline;
 } 
+
+@media (max-width: 767px) { 
+    #recipe-detail {
+        position: fixed;
+        z-index: 1;
+    }
+
+    .card h2 {
+        padding: .25rem;
+    }
+
+    #recipe-list {
+        top: 500px;
+    }
+
+    .detail-image img {
+        max-height: 162px;
+    }
+
+
+ }

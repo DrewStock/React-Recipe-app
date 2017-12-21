@@ -13,7 +13,7 @@ const RecipeList = (props) => {
     })
 
     return (
-        <ul className="col-4">
+        <ul id="recipe-list" className="col-md-4">
             {recipeItems}
         </ul>
     );
