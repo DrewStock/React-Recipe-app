@@ -1,5 +1,5 @@
 body {
-    background-color: hsla(25, 100%, 43%, .75);
+    background-color: ghostwhite;
     font-family: 'Lato', sans-serif;
 }    
 
@@ -40,8 +40,13 @@ body {
     padding: 1rem;
 }
 
+#recipe-list {
+    /* margin-left: 1rem; */
+}
+
 .recipe-item {
     padding: 1rem;
+    /* margin-left: 1rem; */
 }
 
 .recipe-item img {
@@ -57,6 +62,7 @@ body {
     max-width: 75%;
     max-height: 432px;
     padding: 1rem;
+    margin-right: 1.5rem;
 }
 
 .media:hover {
@@ -72,6 +78,7 @@ body {
     #recipe-detail {
         position: fixed;
         z-index: 1;
+        margin-top: 0;
     }
 
     .card h2 {

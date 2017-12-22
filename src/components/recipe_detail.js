@@ -6,17 +6,27 @@ const RecipeDetail = ({recipe, selectedRecipe}) => {
         return <div>Loading...</div>
     }
 
+    const recipeIngredients = recipe.ingredients.map((ingredient) => {
+        return (
+            <li key={ingredient.ingredientId}>{ingredient.ingredientDescription}</li>
+        )
+    });
+
     return (
-        <div id="recipe-detail" className="h-50 col-md-8 card">
-        <div>
-            <h2>{recipe.name}</h2>
+        <div id="recipe-detail" className="h-75 col-lg-8 card">
+            <div>
+                <h2>{recipe.name}</h2>
+            </div>
+            <div className="detail-image">
+                <img src={recipe.imageUrl} />
+                <ul> 
+                    {recipeIngredients} 
+                </ul>
+                <p>
+                    {recipe.instructions}
+                </p>          
+            </div>
         </div>
-        <div className="detail-image">
-            <img src={recipe.imageUrl} />
-            <p>Bacon ipsum dolor amet biltong frankfurter shank swine pancetta prosciutto short ribs sausage pig chicken. Ball tip rump tongue spare ribs burgdoggen, cupim buffalo chuck corned beef flank. Sirloin fatback buffalo tenderloin, pancetta shankle landjaeger ground round sausage hamburger pork loin bacon tongue. Bresaola ham hock kielbasa sausage strip steak shank cupim andouille leberkas turducken. Ball tip turkey ribeye chuck pork loin tenderloin spare ribs.
-            </p>
-        </div>
-    </div>
     );
 }
 
