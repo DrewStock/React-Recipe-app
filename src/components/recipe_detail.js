@@ -7,7 +7,7 @@ const RecipeDetail = ({recipe, selectedRecipe}) => {
     }
 
     return (
-        <div id="recipe-detail" className="h-50 col-md-8 card">
+        <div id="recipe-detail" className="h-75 col-lg-8 card">
         <div>
             <h2>{recipe.name}</h2>
         </div>
