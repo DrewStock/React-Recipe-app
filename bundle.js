@@ -21392,7 +21392,7 @@
 
 	    return _react2.default.createElement(
 	        'ul',
-	        { id: 'recipe-list', className: 'col-md-4' },
+	        { id: 'recipe-list', className: 'col-lg-4' },
 	        recipeItems
 	    );
 	};
@@ -21481,9 +21481,17 @@
 	        );
 	    }
 
+	    var recipeIngredients = recipe.ingredients.map(function (ingredient) {
+	        return _react2.default.createElement(
+	            "li",
+	            { key: ingredient.ingredientId },
+	            ingredient.ingredientDescription
+	        );
+	    });
+
 	    return _react2.default.createElement(
 	        "div",
-	        { id: "recipe-detail", className: "h-50 col-md-8 card" },
+	        { id: "recipe-detail", className: "h-75 col-lg-8 card" },
 	        _react2.default.createElement(
 	            "div",
 	            null,
@@ -21498,9 +21506,14 @@
 	            { className: "detail-image" },
 	            _react2.default.createElement("img", { src: recipe.imageUrl }),
 	            _react2.default.createElement(
+	                "ul",
+	                null,
+	                recipeIngredients
+	            ),
+	            _react2.default.createElement(
 	                "p",
 	                null,
-	                "Bacon ipsum dolor amet biltong frankfurter shank swine pancetta prosciutto short ribs sausage pig chicken. Ball tip rump tongue spare ribs burgdoggen, cupim buffalo chuck corned beef flank. Sirloin fatback buffalo tenderloin, pancetta shankle landjaeger ground round sausage hamburger pork loin bacon tongue. Bresaola ham hock kielbasa sausage strip steak shank cupim andouille leberkas turducken. Ball tip turkey ribeye chuck pork loin tenderloin spare ribs."
+	                recipe.instructions
 	            )
 	        )
 	    );
