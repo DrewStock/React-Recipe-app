@@ -21476,8 +21476,17 @@
 	    if (!recipe) {
 	        return _react2.default.createElement(
 	            "div",
-	            { className: "loader" },
-	            "Loading..."
+	            null,
+	            _react2.default.createElement("div", { className: "loader" }),
+	            _react2.default.createElement(
+	                "div",
+	                { className: "loading" },
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "Loading..."
+	                )
+	            )
 	        );
 	    }
 
