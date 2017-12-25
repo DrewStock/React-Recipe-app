@@ -3,7 +3,14 @@ import React from 'react';
 const RecipeDetail = ({recipe, selectedRecipe}) => {
 
     if (!recipe) {
-        return <div>Loading...</div>
+        return (
+                <div>
+                    <div className="loader"></div>
+                    <div className="loading">
+                       <p>Loading...</p> 
+                    </div>
+                </div>
+        )
     }
 
     const recipeIngredients = recipe.ingredients.map((ingredient) => {
