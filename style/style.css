@@ -1,5 +1,5 @@
 body {
-    background-color: ghostwhite;
+    background-color: rgba(247, 206, 62, .75);
     font-family: 'Lato', sans-serif;
 }    
 
@@ -73,6 +73,11 @@ body {
 .recipe-item h4:hover {
     text-decoration: underline;
 } 
+
+.loading {
+    font-size: 2rem;
+    font-weight: 900;
+}
 
 @media (max-width: 767px) { 
     #recipe-detail {
