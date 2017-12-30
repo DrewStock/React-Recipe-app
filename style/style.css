@@ -74,6 +74,20 @@ body {
     text-decoration: underline;
 } 
 
+#recipe-detail > div.detail-image > ul {
+    padding-left: 1rem;
+    clear: left;
+}
+
+#recipe-detail > div.detail-image > ul > li {
+    list-style-type: none;
+    font-weight: bold;
+}
+
+#recipe-detail > div.detail-image > p {
+    padding-left: 1rem;
+}
+
 .loading {
     font-size: 2rem;
     font-weight: 900;
