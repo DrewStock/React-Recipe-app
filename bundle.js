@@ -21383,6 +21383,14 @@
 
 	var RecipeList = function RecipeList(props) {
 
+	    // TO DO: Continue work on search functionality, refer to Udemy course
+	    props.recipes.map(function (recipe) {
+	        var recipeNameString = JSON.stringify(recipe.name).toLowerCase();
+	        if (recipeNameString.includes('chicken')) {
+	            console.log(recipe.name);
+	        }
+	    });
+
 	    var recipeItems = props.recipes.map(function (recipe) {
 	        return _react2.default.createElement(_recipe_list_item2.default, {
 	            onRecipeSelect: props.onRecipeSelect,

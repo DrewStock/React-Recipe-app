@@ -1,7 +1,11 @@
 body {
-    background-color: rgba(247, 206, 62, .75);
+    background-color: rgba(247, 206, 62, .5);
     font-family: 'Lato', sans-serif;
-}    
+}
+
+.container {
+    margin-top: 1rem;
+}
 
 .search-bar {
     margin: 20px;
