@@ -3,8 +3,15 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-.container {
-    margin-top: 1rem;
+h1 {
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 0;
+    background-color: aliceblue;
+    margin: 1rem auto 0;
+    width: 50%;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px #000;
 }
 
 .search-bar {
